@@ -50,12 +50,13 @@ function addTask(text){
     liAge.readOnly = true;
     liAge.style.backgroundColor = 'transparent';
 
-    if (liName.value === '' || liClass.value === '' || liCountry.value === '' || liAge.value === '') {
-        alert('Please fill in all the fields.');
+    
 
-    }else if(/[^a-zA-Z]/.test(liName.value) || /[^a-zA-Z]/.test(liCountry.value) || /[^0-9]/.test(liAge.value)){
+    if(/[^a-zA-Z]/.test(liName.value) || /[^a-zA-Z]/.test(liCountry.value) || /[^0-9]/.test(liAge.value)){
         alert('Invalid input:\nName and Country should only contain letters.\nAge should only contain numbers.');
         console.log("wrong input");
+    } else if (liName.value === '' || liClass.value === '' || liCountry.value === '' || liAge.value === '') {
+        alert('Please fill in all the fields.');
     }else {
         console.log("correct input");
         li.appendChild(labName);
@@ -243,22 +244,36 @@ function modify() {
             var data = listItems[i].getElementsByTagName("input");
             for(j =0; j< data.length; j++){
                 data[j].readOnly = false;
-                console.log(data[j]);
+                // console.log(data[j]);
             }
         }
 
     }else if (modBTN.textContent === "Done Modifying") {
-        modBTN.textContent = "modify";
-        btnIP = false;
+        
         var listItems = document.querySelectorAll('#list li');
+        
 
-        for(i =0; i< listItems.length; i++){
-            var data = listItems[i].getElementsByTagName("input");
-            for(j =0; j< data.length; j++){
-                data[j].readOnly = true;
-            }
+        
+        
+            for(i =0; i< listItems.length; i++){
+                var data = listItems[i].getElementsByTagName("input");
+                if(/[^a-zA-Z]/.test(data[0].value) || /[^a-zA-Z]/.test(data[2].value) || /[^0-9]/.test(data[3].value)){
+                    alert('Invalid input:\nName and Country should only contain letters.\nAge should only contain numbers.');
+                }else if(data[0].value === '' || data[1].value === '' || data[2].value === '' || data[3].value === '') {
+                    alert('Please fill in all the fields.');
+                    // console.log("wrong input");
+                }else {
+                    modBTN.textContent = "modify";
+                    btnIP = false;
+                    for(j =0; j< data.length; j++){
+                        data[j].readOnly = true;
+                    }
+                }
 
         }
+        
+
+        
 
     } 
 }
