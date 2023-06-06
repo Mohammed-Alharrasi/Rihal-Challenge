@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Web App For Student Informartion</title>
+    <link rel="stylesheet" type= "text/css" href="admin.css">
+</head>
+<body>
+
+    <div class="container">
+      <div class="to-do-app">
+        <h2>Students Form</h2>
+        <br>
+        <!-- <input type="text" id="item" placeholder="Enter item..."> -->
+        <label for="student Name" >Student Name</label><br>
+        <input type="text" id="name" placeholder="Student Name" required autofocus><br>
+        <label for="class" >Class</label><br>
+        <input type="text" id="class" placeholder="Class" required><br>
+        <label for="country" >Country</label><br>
+        <input type="text" id="country" placeholder="Country" required><br>
+        <label for="age" >Age</label><br>
+        <input type="number" step = "1" id="age" placeholder="Age" required><br>
+        <br>
+        <br>
+        <button onclick="add()">Add Item<i class="fa-solid fa-plus"></i></button>
+        <button onclick="del()">Clear all<i class="fa-solid fa-ban"></i></button>
+        <button id = 'remove' onclick="remove()">remove<i class="fa-solid fa-ban"></i></button>
+        <button id = 'modify' onclick="modify()">modify<i class="fa-solid fa-ban"></i></button>
+        <div id="popup" style="display: none;">
+            <h2>Pop-up Content</h2>
+            <p>This is the content of the pop-up.</p>
+            <button id="closeButton">Close</button>
+          </div>
+      </div>
+      <ul id= 'list' class="to-do-list"></ul>
+    </div>
+  
+    <script src="admin.js"></script>
+  </body>
+</body>
+</html>
