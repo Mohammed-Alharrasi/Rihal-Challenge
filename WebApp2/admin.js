@@ -2,7 +2,7 @@ const ul = document.querySelector('ul');
 
 var btnIP = false;
 
-let key = 0;
+// let key;
 
 let itemsArray = localStorage.getItem('items') ?
 JSON.parse(localStorage.getItem('items')) : [];
@@ -17,8 +17,10 @@ function addTask(text){
 
     var liName = document.createElement('input');
     liName.type = 'text';
-    liName.pattern = "[A-Za-z]+";
+    liName.id = "liName"
+    // liName.pattern = "[A-Za-z]+";
     liName.value = text.name; 
+    // console.log(text.name)
     liName.readOnly = true;
     liName.style.backgroundColor = 'transparent';
 
@@ -77,6 +79,8 @@ function addTask(text){
         li.appendChild(document.createElement('br'));
 
         ul.appendChild(li);
+        
+        return true;
 
     }
 
@@ -98,12 +102,17 @@ function add(){
             class: clas,
             country: country,
             age: age,
-    }
+        }
     
     
-        itemsArray.push(info);
-        localStorage.setItem('items', JSON.stringify(itemsArray));
-        addTask(info);
+        
+        dataAdded = addTask(info);
+        if(dataAdded){
+            itemsArray.push(info);
+            localStorage.setItem('items', JSON.stringify(itemsArray));
+        }
+        // localStorage.setItem('items', JSON.stringify(itemsArray));
+        
 
     }
 
@@ -208,6 +217,9 @@ function remove() {
         btnIP = true;
         var listItems = document.querySelectorAll('#list li');
 
+
+        
+
         listItems.forEach(function(li) {
         li.addEventListener('click', removeListItem);
         });
@@ -223,11 +235,27 @@ function remove() {
   }
   
 function removeListItem() {
+    // var li = this;
+ 
+    // li.parentNode.removeChild(li);
     var li = this;
+    // var index = Array.from(li.parentNode.children).indexOf(li);
+    var index = -1;
+    // console.log('Removed item index:', index);
+    var info = li.getElementsByTagName("input");
+    // console.log('li Name:', na[0].value);
+    for(i =0; i< itemsArray.length; i++){
+        if(itemsArray[i].name === info[0].value && itemsArray[i].class === info[1].value && itemsArray[i].country === info[2].value && itemsArray[i].age === info[3].value ){
+            index = i;
+            break;
+        }
+    }
+    console.log('Removed item index:', index);
     li.parentNode.removeChild(li);
+    itemsArray.splice(index, 1);
+    localStorage.clear();
+    localStorage.setItem('items', JSON.stringify(itemsArray));
 }
-  
-
 
 
 
