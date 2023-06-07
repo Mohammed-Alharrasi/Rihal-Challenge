@@ -15,6 +15,7 @@ The Student Information Management System is a web-based application that allows
 - Students average age: Users can see the average age of students in per class or country based on their search
 - Filter Students: Users can filter the student list based on class or country to view specific groups of students.
 - Night Mode: The application includes a night mode toggle, allowing users to switch between light and dark themes for better visibility.
+- Valid Input: The system will check if the user entered a valid input and will display an error if an invalid inout has been detected (EX: empty information or Numbers in the name section.)
 
 ## Installation and Usage
 
@@ -29,9 +30,13 @@ The Student Information Management System is a web-based application that allows
 - CSS
 - JavaScript
 
+## How to use the WebApp:
+
+https://drive.google.com/file/d/1Bw23l0Y3SpMp_dg5057QLzlupHCyDyWv/view?usp=share_link
 
 
 ## License
 
 This project was done by Mohammed AlHarrasi, last Modified on 06/06/2023 at 11:25 pm. 
+Email: alharrasi.mohammed37@gmail.com
 
