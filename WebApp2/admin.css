@@ -1,3 +1,5 @@
+
+
 @import url("https://fonts.googleapis.com/css2?family=Asap&display=swap");
 * {
   padding: 0;
@@ -7,33 +9,54 @@
 body {
   width: 100%;
   height: 100vh;
-  background-color: #e0d6e9;
   font-family: "Asap", sans-serif;
+  background: rgb(220, 211, 200);
+  color: #000000;
 }
+.night-mode {
+  background: #3e3d3d;
+  color: #2b2b2b;
+}
+
 .container {
-  max-width: 405px;
-  margin: 137px auto;
+  max-width: 400px;
+  max-height: 600px;
+  margin-top: 20px;
   padding: 20px;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  
 }
-.to-do-app {
-  width: 100%;
+.student-form-app {
+  width: 290px;
   padding: 20px;
   border-radius: 5px;
   background-color: whitesmoke;
   border: 1px solid #d3d3d3;
+  
 }
-.to-do-app h2 {
+
+.night-mode .student-form-app {
+  background-color: #6b6969;
+  color: #ffffff;
+}
+
+.student-form-app h2 {
   padding: 10px;
 }
-.to-do-app input {
+.student-form-app input {
+  
   width: 250px;
   padding: 5px;
   border-radius: 5px;
   border: 1px solid #d3d3d3;
 }
-.to-do-app button {
+
+.night-mode .student-form-app input {
+  background-color: #5d5b5b;
+  color: #ffffff;
+}
+.student-form-app button {
   width: fit-content;
   padding: 5px;
   cursor: pointer;
@@ -41,23 +64,93 @@ body {
   border-radius: 5px;
   background-color: whitesmoke;
 }
-.to-do-app button:hover {
+
+.night-mode .student-form-app button {
+  background-color: #5d5b5b;
+  color: #ffffff;
+}
+.student-form-app button:hover {
   background-color: rgba(0, 0, 0, 0.1);
 }
+
+.night-mode .student-form-app button:hover {
+  background-color: #4f4d4d;
+  color: #ffffff;
+}
+
 li {
   font-size: 1.5rem;
 }
-.to-do-list {
-  margin-top: 20px;
-  margin-right: 5px;
-  padding: 0 20px 10px 25px;
-  display: flex;
-  flex-direction: column;
-  gap: 15px;
-  list-style: none;
-}
-.to-do-list li{
+
+.student-list {
+    
+    margin-right: 5px;
+    max-height: 150px;
+    padding: 0 20px 10px 25px;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 15px;
+    list-style: none;
+    
+  }
+
+  .student-list li {
   font-size: small;
   background-color: whitesmoke;
   padding: 20px;
+  border-radius: 5px;
+  border: 1px solid #edebeb;
 }
+
+.night-mode .student-list li {
+  background-color: #6b6969;
+  color: #ffffff;
+}
+
+.student-list li:hover {
+  background-color: rgb(237, 235, 235);
+}
+
+.night-mode .student-list li:hover {
+  background-color: #616060;
+  color: #ffffff;
+}
+
+
+  .search {
+
+    width: 290px;
+
+    padding: 20px;
+    border-radius: 5px;
+    background-color: whitesmoke;
+    border: 1px solid #d3d3d3;
+    margin-left: 20px;
+    align-items: left;
+
+    flex-direction: column;
+    
+  }
+
+
+  .night-mode .search {
+    background-color: #6b6969;
+    color: #ffffff;
+  }
+
+
+
+  .mode-toggle {
+    position: fixed;
+    top: 5px;
+    right: 5px;
+    width: 40px;
+    height: 20px;
+    background-color: rgb(134, 128, 128);
+    border: none;
+    outline: none;
+    border-radius: 10px; 
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); 
+  }
+  
+ 
